@@ -1,42 +1,48 @@
-# Jekyll-Bootstrap
-
-The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
-
-## Usage
-
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+## Cloned from [Jekyll Bootstrap](http://jekyllbootstrap.com/)
 
 ## Version
 
 0.2.13 - stable and versioned using [semantic versioning](http://semver.org/).
 
-## Contributing 
-
-This repository tracks 2 projects:
-
-- **Jekyll-Bootstrap Framework.**  
-  The framework for which users should clone and build their blog on top of is available in the master branch.
-  
-  To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
-  This is very important as it allows me to accept your pull request without having to publish a public version release.
-  
-  Small, atomic Features, bugs, etc.   
-  Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.   
-  Please rebase as often as possible when working.   
-  Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
-  
-  For Big Features or major API extensions/edits:   
-  This is the one case where I'll accept pull-requests based off the master branch.
-  This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
-  Translation : it might take a bit longer so please be patient! (but sincerely thank you).
- 
-- **Jekyll-Bootstrap Documentation Website.**    
-  The documentation website at <http://jekyllbootstrap.com> is maintained in the gh-pages branch.
-  Please fork and contribute documentation additions to this branch only.
-
-The master and gh-pages branch do not share the same ancestry. Please treat them as completely separate git repositories!
 
 
-## License
+###Theme layouts are in ./_includes/themes/twitter
+(switching themes will overwrite files in ./_layouts)
 
-[Creative Commons](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+###Order of how layouts are applied:
+default.html (main layout, with CSS and JS links, body, etc) -->  
+Page/Post/Custom (layout specified in ./file.md YAML front matter)-->  
+./file.md (actual content)
+
+Add template to _layouts to customize blog
+
+Static assets name-spaced for theme in ./assets/themes/twitter
+
+
+Base Jekyll App
+===============
+_config.yml
+Stores configuration data.
+
+_includes
+This folder is for partial views.
+
+_layouts 
+This folder is for the main templates your content will be inserted into. You can have different layouts for different pages or page sections.
+
+_posts
+This folder contains your dynamic content/posts. the naming format is required to be @YEAR-MONTH-DATE-title.MARKUP@.
+
+_site
+This is where the generated site will be placed once Jekyll is done transforming it.
+
+assets
+This folder is not part of the standard jekyll structure. The assets folder represents any generic folder you happen to create in your root directory. Directories and files not properly formatted for jekyll will be left untouched for you to serve normally.
+
+index.html and Other HTML/Markdown/Textile Files
+Provided that the file has a YAML Front Matter section, it will be transformed by Jekyll. The same will happen for any .html, .markdown, .md, or .textile file in your site's root directory or directories not listed above.
+
+Other Files/Folders
+Every other directory and file except for those listed above will be transferred over as expected. For example, you could have a css folder, a favicon.ico, etc, etc. There's plenty of sites already using Jekyll if you're curious as to how they're laid out.
+
+Any files in these directories will be parsed and transformed, according to the same rules mentioned previously for files in the root directory
